@@ -303,12 +303,13 @@ export default class App extends React.Component {
             instrumentName,
             instrumentSettings
           }
-        }    
+        }  
     })
 
     this.setState({
       allInstrumentData
     })
+    
   }
 
 

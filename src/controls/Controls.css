@@ -70,7 +70,9 @@
     width: 200px;
 }
 
-.Controls .sequencer-options-container .sequencer-options .options > span{
+.Controls .sequencer-options-container .sequencer-options .options .text {
+    margin: 0 10px;
+    padding-top: 6px;
 }
 
 .Controls .sequencer-options-container .sequencer-options .beat-division-select {

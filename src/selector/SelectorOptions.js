@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './Selector.css'
-import styled from 'styled-components'
 import OptionsSlider from './OptionsSlider'
 
 

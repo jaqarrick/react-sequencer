@@ -51,12 +51,11 @@ class SequencerOptions extends React.Component {
     }
 
     render() {
-        const { selectedOption } = this.state;
         return(
         <div className={this.props.className}>
             <div className="sequencer-options">
                 <div className="options">
-                    <span> beat division
+                    <span className="text"> beats
                     </span>
                     <OptionsSlider
                         defaultValue={16}
@@ -70,7 +69,7 @@ class SequencerOptions extends React.Component {
                     />
                 </div>
                 <div className="options">
-                    <span> tempo/bpm
+                    <span className="text"> tempo/bpm
                     </span>
                     <OptionsSlider
                         defaultValue={120}
@@ -83,7 +82,7 @@ class SequencerOptions extends React.Component {
                     />
                 </div>
                 <div className="options">
-                    <span> volume
+                    <span className="text"> volume
                     </span>
                     <OptionsSlider
                         defaultValue={90}
