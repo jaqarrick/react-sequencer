@@ -1,0 +1,18 @@
+.Visualizer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.Visualizer .light {
+    height: 40px;
+    width: 40px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0px 3px;
+}
+.Visualizer .light.active {
+    background-color: #ffee00;
+    font-family: verdana;
+}

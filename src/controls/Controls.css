@@ -1,0 +1,92 @@
+
+.Controls {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    
+}
+.Controls .control-buttons > button {
+    margin-top: 40px;
+    border: none;
+    height: 50px;
+    width: 100px;
+    color: whitesmoke;
+    background-color: transparent;
+    z-index: 0;
+}
+
+.Controls .control-buttons > button:hover {
+    color: whitesmoke
+}
+
+.Controls .instrument-options-container {
+    font-size: 1em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: auto;
+    width: 40vw;
+    display: none;
+    border: none;
+    justify-content: center;
+    top: 100px;
+
+}
+.Controls .instrument-options-container.active {
+    display: flex;
+}
+
+.Controls .instrument-options-container .options {
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 1rem;
+    border: none;
+}
+.Controls .instrument-options-container .options:hover {
+    color: rgb(119, 11, 119);
+}
+
+
+.Controls .sequencer-options-container {
+    position: absolute;
+    top: 20%;
+    width: 100vw;
+    display: none;
+    justify-content: center;
+    top: 100px;
+}
+.Controls .sequencer-options-container.active {
+    display: flex
+}
+
+.Controls .sequencer-options-container .sequencer-options {
+    display: flex
+}
+.Controls .sequencer-options-container .sequencer-options .options {
+    display: flex;
+    cursor: pointer;
+    margin: 0px 10px;
+    width: 200px;
+}
+
+.Controls .sequencer-options-container .sequencer-options .options > span{
+}
+
+.Controls .sequencer-options-container .sequencer-options .beat-division-select {
+    width: 100px;
+    color: black;
+    background-color: transparent;
+}
+
+
+
+.Controls .sequencer-options-container .sequencer-options .beat-division-select {
+    position: relative;
+}
+
+.Controls .sequencer-options-container .sequencer-options .beat-division-select > select {
+    display: none; 
+} 
+
+

@@ -1,0 +1,16 @@
+.Selector .clicker {
+    height: 40px;
+    width: 40px;
+    background-color: whitesmoke;
+    display: inline-block;
+    color: black;
+    margin: 0px 3px;
+  }
+
+  .Selector .clicker:hover {
+    background-color: #ffee00;
+  }
+  
+  .Selector .clicker.active {
+    background-color: #ffee00;
+  }
