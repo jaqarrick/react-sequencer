@@ -27,7 +27,7 @@
 }
 
 .Selector > .instrumentsOptionsSwitch.active {
-    color: #ffee00;
+    color: rgb(119, 11, 119);
 }
 
 .Selector .instrumentNameSwitch {
