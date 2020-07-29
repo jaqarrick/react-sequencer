@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/react-sequencer/static/css/main.48910363.chunk.css",
-    "main.js": "/react-sequencer/static/js/main.5beabf38.chunk.js",
-    "main.js.map": "/react-sequencer/static/js/main.5beabf38.chunk.js.map",
+    "main.css": "/react-sequencer/static/css/main.7b1460d1.chunk.css",
+    "main.js": "/react-sequencer/static/js/main.f34c963f.chunk.js",
+    "main.js.map": "/react-sequencer/static/js/main.f34c963f.chunk.js.map",
     "runtime-main.js": "/react-sequencer/static/js/runtime-main.d05d0dd2.js",
     "runtime-main.js.map": "/react-sequencer/static/js/runtime-main.d05d0dd2.js.map",
     "static/js/2.39b56fad.chunk.js": "/react-sequencer/static/js/2.39b56fad.chunk.js",
     "static/js/2.39b56fad.chunk.js.map": "/react-sequencer/static/js/2.39b56fad.chunk.js.map",
     "index.html": "/react-sequencer/index.html",
-    "precache-manifest.981321d5730b35763afef1ddcd43117f.js": "/react-sequencer/precache-manifest.981321d5730b35763afef1ddcd43117f.js",
+    "precache-manifest.1999eb96eb9cf3c6fa4f02cfd0326467.js": "/react-sequencer/precache-manifest.1999eb96eb9cf3c6fa4f02cfd0326467.js",
     "service-worker.js": "/react-sequencer/service-worker.js",
-    "static/css/main.48910363.chunk.css.map": "/react-sequencer/static/css/main.48910363.chunk.css.map",
+    "static/css/main.7b1460d1.chunk.css.map": "/react-sequencer/static/css/main.7b1460d1.chunk.css.map",
     "static/js/2.39b56fad.chunk.js.LICENSE.txt": "/react-sequencer/static/js/2.39b56fad.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d05d0dd2.js",
     "static/js/2.39b56fad.chunk.js",
-    "static/css/main.48910363.chunk.css",
-    "static/js/main.5beabf38.chunk.js"
+    "static/css/main.7b1460d1.chunk.css",
+    "static/js/main.f34c963f.chunk.js"
   ]
 }
