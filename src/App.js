@@ -55,7 +55,7 @@ export default class App extends React.Component {
       beatDivisionOptions,
       bpm, 
       counter,
-      isPlaying:false
+      isPlaying:false,
     }  
   }
 
@@ -314,7 +314,15 @@ export default class App extends React.Component {
 
 
   render() {
-    const {allInstrumentData, beats, counter, instrumentOptions, isPlaying} = this.state
+    const {
+      beatDivisionOptions,
+      bpm, 
+      allInstrumentData, 
+      beats, 
+      counter, 
+      instrumentOptions, 
+      isPlaying
+    } = this.state
 
     return (
       <Container>
@@ -324,13 +332,11 @@ export default class App extends React.Component {
           onStartStopLoopClick = {this.startStopLoop} isPlaying={isPlaying}
           onRevealDataClick={this.revealData} onStopLoopClick={this.stopLoop} 
           onAddInstrumentClick={this.onAddInstrumentClick}
-          beatDivisionOptions={this.state.beatDivisionOptions}
+          beatDivisionOptions={beatDivisionOptions}
           onChangeBeatDivision={this.changeBeatDivision}
           onChangeTempo={this.changeTempo}
           onChangeVolume={this.changeVolume}
-          bpm={this.state.bpm}
-
-
+          bpm={bpm}
           />
         <Visualizer 
           counter={counter} 

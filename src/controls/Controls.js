@@ -12,7 +12,6 @@ class InstrumentOption extends React.Component {
 
   addInstrument = () => {
     this.props.onAddInstrumentClick(this.props.instrumentName)
-    this.props.toggleOptions()
   }
 
   render() {
@@ -37,7 +36,7 @@ class ControlOptions extends React.Component {
           key={i} 
           instrumentName={option}
           onAddInstrumentClick={this.props.onAddInstrumentClick}
-          toggleOptions={this.props.toggleOptions} />
+          />
         )}
       </div>
     )
@@ -102,7 +101,11 @@ class Controls extends React.Component {
               id="optionsButton"
               onClick={this.toggleInstrumentBox} 
             > 
-              <svg id="svg" width="24" fill="whitesmoke" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M11 11v-11h1v11h11v1h-11v11h-1v-11h-11v-1h11z"/></svg> 
+              {this.state.hasClickedInstrumentOptions ? 
+                <div>&#x2014;</div>
+                :
+                <svg id="svg" width="24" fill="whitesmoke" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M11 11v-11h1v11h11v1h-11v11h-1v-11h-11v-1h11z"/></svg> 
+              }
             </button>
             <button
             onClick={this.toggleSequencerBox}
@@ -115,7 +118,6 @@ class Controls extends React.Component {
           <ControlOptions 
             hasClickedInstrumentOptions={this.state.hasClickedInstrumentOptions}
             hasClickedSequencerOptions={this.state.hasClickedSequencerOptions}
-            toggleOptions={this.toggleInstrumentBox}
             onAddInstrumentClick={this.props.onAddInstrumentClick}
             instrumentOptions={this.props.instrumentOptions}
             className={this.state.hasClickedInstrumentOptions ? "instrument-options-container active" : "instrument-options-container"} 
