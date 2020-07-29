@@ -22,6 +22,14 @@
     margin-bottom: 0.15em;
 }
 
+.Selector > .instrumentsOptionsSwitch {
+    color: whitesmoke
+}
+
+.Selector > .instrumentsOptionsSwitch.active {
+    color: #ffee00;
+}
+
 .Selector .instrumentNameSwitch {
     display: flex;
     flex-direction: column;

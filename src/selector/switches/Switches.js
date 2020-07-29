@@ -22,7 +22,13 @@ class InstrumentOptionsSwitch extends Component {
     
     render(){
         return(
-            <div onClick={this.props.onClickInstrumentOptions}className="switch instrumentsOptionsSwitch">
+            <div 
+                onClick={this.props.onClickInstrumentOptions}
+                className={this.props.hasClickedSelectorOptions ?
+                    "switch instrumentsOptionsSwitch active"
+                    :
+                    "switch instrumentsOptionsSwitch"
+                }>
                 <div>&#9776;</div>       
             </div>
         )

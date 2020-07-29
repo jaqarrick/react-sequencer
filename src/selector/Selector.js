@@ -15,8 +15,6 @@ class Selector extends React.Component {
   constructor(props){
     super(props)
 
-
-
     this.state = {
       hasClickedSelectorOptions: false
     }
@@ -42,7 +40,9 @@ class Selector extends React.Component {
               hasClicked={this.props.beatsClicked.includes(beat) === true ? true : false}
               />
           )}
-          <InstrumentOptionsSwitch onClickInstrumentOptions={this.toggleOptions} />
+          <InstrumentOptionsSwitch 
+            onClickInstrumentOptions={this.toggleOptions}
+            hasClickedSelectorOptions={this.state.hasClickedSelectorOptions}  />
           <RemoveInstrumentSwitch 
             selectorIndex={this.props.selectorIndex}
             onRemoveInstrumentClick={this.props.onRemoveInstrumentClick}
