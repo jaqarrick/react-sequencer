@@ -8,9 +8,9 @@
   }
 
   .Selector .clicker:hover {
-    background-color: rgb(119, 11, 119);
+    background-color:#ffee00
   }
   
   .Selector .clicker.active {
-    background-color: #ffee00;
+    background-color: rgb(119, 11, 119)
   }

@@ -4,7 +4,16 @@ import Controls from './controls/Controls'
 import Visualizer from './selector/Visualizer'
 import Selector from './selector/Selector'
 import './App.css';
-import Tone from 'tone'
+import { 
+  Loop, 
+  Sampler,
+  Transport, 
+  Freeverb, 
+  Master, 
+  PingPongDelay, 
+  MembraneSynth, 
+  Synth, 
+ } from 'tone'
 
 
 
@@ -24,28 +33,24 @@ export default class App extends React.Component {
     let beatDivisionOptions = 
     [{value:2,label:2}, {value:3,label:3}, {value:4,label:4}, {value:5,label:5}, {value:6,label:6}, {value:7,label:7}, {value:8,label:8}, {value:9,label:9}, {value:10, label:10}, {value:11, label:11}, {value:12, label:12}, {value:13, label:13}, {value:14 ,label:14}, {value:15, label:15}, {value:16, label:16}]
     let beatDivision = 16
-    let loopBeat = new Tone.Loop(this.song, '16n')
+    let loopBeat = new Loop(this.song, '16n')
 
-    let transport = Tone.Transport
+    
+    const transport = Transport
     let bpm = 140
     transport.timeSignature = beatDivision/16
     transport.bpm.value = bpm
     let counter = 0
     let beats = []
-    let instrumentOptions = ["kick", "snare", "hihat", "cymbal", "synth"]
+    let instrumentOptions = ["kick", "snare", "hat", "crash", "synth"]
     let allInstrumentData = []
     for(let i=0; i<beatDivision; i++){
       beats.push(i)
     }
-    let volumeValue = 0
-    let volume = new Tone.Volume(volumeValue).toMaster()
 
     let notes = ['C', 'C#', 'D', 'D#', "E", "F", "F#", "G", "G#", "A", "A#", "B"]
-
     this.state = {
       notes,
-      volume, 
-      volumeValue,
       beats,
       instrumentOptions,
       allInstrumentData, 
@@ -97,14 +102,14 @@ export default class App extends React.Component {
     let instrumentType
     let instrumentSettings = {}
     let instrumentName = instrument
-    let reverb = new Tone.Freeverb().chain(this.state.volume, Tone.Master)
-    let delay = new Tone.PingPongDelay().connect(reverb)
+    let reverb = new Freeverb().toDestination()
+    let delay = new PingPongDelay().connect(reverb)
     reverb.wet.value  = 0
     delay.wet.value = 0
 
 
     if(instrument === "kick"){
-      newInstrument = new Tone.MembraneSynth()
+      newInstrument = new MembraneSynth()
       instrumentType = "melodic"
       instrumentSettings = {
         note: {
@@ -114,7 +119,7 @@ export default class App extends React.Component {
       }
         
     } else if(instrument === "synth"){
-        newInstrument = new Tone.Synth()
+        newInstrument = new Synth()
         instrumentType = "melodic"
         instrumentSettings = {
           note: {
@@ -122,26 +127,23 @@ export default class App extends React.Component {
             octave: 3
           }
         }
-    } else if(instrument === "snare"){
-      newInstrument = new Tone.NoiseSynth()
-      instrumentType = "perc"
-      instrumentSettings = {
-      }
-
-    } else if(instrument === "hihat"){
-      newInstrument = new Tone.MetalSynth({decay : 0.3})
-      instrumentType = "perc"
-      instrumentSettings = {
-      }
-    }else if(instrument === "cymbal"){
-      newInstrument = new Tone.MetalSynth()
-      instrumentType = "perc"
-      instrumentSettings = {
-      }
     } else {
-      let error = "instrument undefined"
-      throw error
+      newInstrument = new Sampler({
+        urls: {C2: `${instrument}.mp3`},
+        baseUrl: 'https://res.cloudinary.com/dcttcffbc/video/upload/v1597045705/samples/react-sequencer/',
+        onload: () => console.log("loaded")
+      })
+      instrumentType = "melodic"
+      instrumentSettings = {
+        note: {
+          noteSelected: this.state.notes[0],
+          octave: 2
+        }
+      }
     }
+
+    
+    
 
     instrumentSettings.effects = {
       reverb: reverb,
