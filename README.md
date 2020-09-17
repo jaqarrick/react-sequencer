@@ -11,4 +11,4 @@ This project is built on React, Teoria.js and Tone.js
 
 #### More options for effects and audio processing
 
-Try it out (here)[https://jaqarrick.github.io/react-sequencer/]
+Try it out [here](https://jaqarrick.github.io/react-sequencer/)!
