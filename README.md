@@ -24,11 +24,3 @@ This project relies heavily on [Yotam Mann](https://github.com/tambien)'s Tone.j
 
 The note selection in ```SequencerOptions.js``` also uses [Jakob Miland](https://github.com/saebekassebil)'s Javascript music theory library [TeoriaJS](https://github.com/saebekassebil/teoria).
 
-
-
-<<<<<<< HEAD
-=======
-#### More options for effects and audio processing
-
-Try it out [here](https://jaqarrick.github.io/react-sequencer/)!
->>>>>>> 4044db5556cb73ba52275e3918ed709b505f0a09
