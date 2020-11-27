@@ -1,7 +1,0 @@
-1. update for mobile use
-2. cymbals too loud
-3. + menu shouldnt close after click and should change to - 
-4. squares should change style on click, hover color should be different
-5. mute button for instruments
-6. active state for hamburger menu
-7. update style - top/bottom margins for selector options to large
