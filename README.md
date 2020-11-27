@@ -26,3 +26,9 @@ The note selection in ```SequencerOptions.js``` also uses [Jakob Miland](https:/
 
 
 
+<<<<<<< HEAD
+=======
+#### More options for effects and audio processing
+
+Try it out [here](https://jaqarrick.github.io/react-sequencer/)!
+>>>>>>> 4044db5556cb73ba52275e3918ed709b505f0a09
