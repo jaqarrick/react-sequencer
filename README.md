@@ -3,6 +3,15 @@ React sequencer is an interactive web instrument that allows users to create uni
 
 Try it out [here!](https://jaqarrick.github.io/react-sequencer/)
 
+##### Install Locally
+Clone this repo and install the dependencies:
+```
+git clone https://github.com/jaqarrick/react-sequencer
+cd react-sequencer
+npm i
+```
+Start the dev server with `npm start` or `yarn start`. 
+
 ## Build
 The sequencer's main functionality stems from the ```song``` function in ```App.js```. When ```startStopLoop``` is called the Tone transport loop begins and ```song``` is called, which increases a beat counter. ```playInstruments``` will fire ```triggerAttackRelease``` on every instrument who's beat signature matches the counter. 
 
