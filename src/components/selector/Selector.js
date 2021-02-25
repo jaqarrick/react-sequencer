@@ -51,6 +51,7 @@ class Selector extends React.Component {
         <SelectorOptions 
           selectorIndex={this.props.selectorIndex}
           updateInstrumentSettings={this.props.updateInstrumentSettings}
+          volumeValue={this.props.volumeValue}
           notes={this.props.notes}
           noteSelected={this.props.noteSelected}
           instrumentType={this.props.instrumentType}

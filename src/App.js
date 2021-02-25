@@ -1,8 +1,8 @@
 
 import React from 'react'
 import Controls from './components/controls/Controls'
-import Visualizer from './selector/Visualizer'
-import Selector from './selector/Selector'
+import Visualizer from './components/selector/Visualizer'
+import Selector from './components/selector/Selector'
 import './App.css';
 import {
   Loop,
@@ -15,6 +15,7 @@ import {
   Synth,
 } from 'tone'
 import InstrumentObject from './lib/instrument-object'
+import { rangeToDb } from './utils/convert-volume-range';
 
 
 
@@ -139,9 +140,8 @@ export default class App extends React.Component {
       reverb: reverb,
       delay: delay
     }
-    newInstrument.connect(delay)
 
-    let newInstrumentObject = new InstrumentObject(newInstrument, [], instrumentType, instrumentName, instrumentSettings)
+    let newInstrumentObject = new InstrumentObject(newInstrument, [], instrumentType, instrumentName, instrumentSettings, delay)
     this.setState({
       allInstrumentData: [...this.state.allInstrumentData, newInstrumentObject],
     })
@@ -188,14 +188,15 @@ export default class App extends React.Component {
     const allInstrumentData = this.state.allInstrumentData.map((instrumentObject, instrumentIndex) => {
       if (instrumentIndex !== selectorIndex) return instrumentObject
 
-      const { beatsClicked, instrument, instrumentType, instrumentName, instrumentSettings } = instrumentObject
+      const { beatsClicked, instrument, instrumentType, instrumentName, instrumentSettings, volumeNode } = instrumentObject
       if (beatsClicked.includes(beatClicked) === true) {
         return {
           instrument,
           beatsClicked: beatsClicked.filter(number => number !== beatClicked),
           instrumentType,
           instrumentName,
-          instrumentSettings
+          instrumentSettings,
+          volumeNode
         }
       } else {
         return {
@@ -203,7 +204,8 @@ export default class App extends React.Component {
           beatsClicked: [...beatsClicked, beatClicked],
           instrumentType,
           instrumentName,
-          instrumentSettings
+          instrumentSettings,
+          volumeNode
         }
       }
     })
@@ -255,7 +257,7 @@ export default class App extends React.Component {
     console.log(volume)
     volume.volume.value = value
     this.setState({ volume })
-    
+
   }
 
 
@@ -264,7 +266,7 @@ export default class App extends React.Component {
 
       if (instrumentIndex !== selectorIndex) return instrumentObject
 
-      const { beatsClicked, instrument, instrumentType, instrumentName, instrumentSettings } = instrumentObject
+      const { beatsClicked, instrument, instrumentType, instrumentName, instrumentSettings, volumeNode } = instrumentObject
       if (setting === "note") {
         instrumentSettings.note.noteSelected = update
         return {
@@ -272,7 +274,9 @@ export default class App extends React.Component {
           beatsClicked,
           instrumentType,
           instrumentName,
-          instrumentSettings
+          instrumentSettings,
+          volumeNode
+
         }
       } if (setting === "reverb") {
         let newWet = update / 100
@@ -282,7 +286,9 @@ export default class App extends React.Component {
           beatsClicked,
           instrumentType,
           instrumentName,
-          instrumentSettings
+          instrumentSettings,
+          volumeNode
+
         }
 
       } if (setting === "delay") {
@@ -293,9 +299,25 @@ export default class App extends React.Component {
           beatsClicked,
           instrumentType,
           instrumentName,
-          instrumentSettings
+          instrumentSettings,
+          volumeNode
+
         }
       }
+      if (setting === "volume") {
+        let newVolume = rangeToDb(update)
+        volumeNode.volume.value = newVolume
+
+        return {
+          instrument,
+          beatsClicked,
+          instrumentType,
+          instrumentName,
+          instrumentSettings,
+          volumeNode
+        }
+      }
+      
     })
 
     this.setState({
@@ -343,13 +365,14 @@ export default class App extends React.Component {
                 updateInstrumentSettings={this.updateInstrumentSettings}
                 beats={beats}
                 onRemoveInstrumentClick={this.removeInstrument}
-                instrumentName={allInstrumentData[i].instrumentName}
-                beatsClicked={allInstrumentData[i].beatsClicked}
-                instrumentType={allInstrumentData[i].instrumentType}
+                instrumentName={instrument.instrumentName}
+                beatsClicked={instrument.beatsClicked}
+                volumeValue = {instrument.volumeNode.volume.value}
+                instrumentType={instrument.instrumentType}
                 notes={this.state.notes}
-                noteSelected={allInstrumentData[i].instrumentType === "melodic"
+                noteSelected={instrument.instrumentType === "melodic"
                   ?
-                  allInstrumentData[i].instrumentSettings.note.noteSelected
+                  instrument.instrumentSettings.note.noteSelected
                   :
                   null}
               />

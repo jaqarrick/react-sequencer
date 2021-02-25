@@ -2,6 +2,7 @@
 import React from 'react';
 import './Selector.css'
 import OptionsSlider from './OptionsSlider'
+import { dbToRange } from '../../utils/convert-volume-range'
 
 
 class NoteSelector extends React.Component {
@@ -29,6 +30,13 @@ class NoteSelector extends React.Component {
 
 class EffectsSelector extends React.Component {
 
+  constructor(props){
+    super(props)
+    console.log(this.props)
+    this.state = {
+      volumeValue: this.props.volumeValue
+    }
+  }
   sendDelay = (event, value) => { 
     let selectorIndex = this.props.selectorIndex
     this.props.updateInstrumentSettings("delay", value, selectorIndex)
@@ -37,12 +45,24 @@ class EffectsSelector extends React.Component {
     let selectorIndex = this.props.selectorIndex
     this.props.updateInstrumentSettings("reverb", value, selectorIndex)
   }
-
-
+  sendVolume = (event, value) => {
+    let selectorIndex = this.props.selectorIndex
+    this.props.updateInstrumentSettings("volume", value, selectorIndex)
+  }
 
   render(){
     return(
       <div className={this.props.className}>
+          <span className="text">volume:</span> 
+          <OptionsSlider
+            name="volume"
+            defaultValue={dbToRange(this.state.volumeValue)}
+            getAriaValueText={this.valuetext}
+            aria-labelledby="discrete-slider"
+            min={0}
+            max={100}
+            onChange={this.sendVolume}
+          />
           <span className="text">delay:</span> 
           <OptionsSlider
             name="delay"
@@ -98,6 +118,7 @@ export default class SelectorOptions extends React.Component {
           null
         }
         <EffectsSelector 
+          volumeValue={this.props.volumeValue}
           className="effects-options-container"
           selectorIndex={this.props.selectorIndex}
           updateInstrumentSettings={this.props.updateInstrumentSettings}
