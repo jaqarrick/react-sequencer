@@ -20,10 +20,12 @@ The UX/UI is divided into unique React components. The  ```controls``` directory
 
 The ```selector``` directory is divided into a beat *visualizer* and a beat *selector*. ```Selector.js``` also includes effects and note options, defined in ```SelectorOptions.js```
 
-## Features to be implemented in Version 2.0
-- Support for mobile use
-- More effects for audio processing
+## New Features in Version 2.0
 - Sample upload: allow for users to upload their own samples to use in the sequencer.
+
+## More Features to be implemented
+- Mobile support.
+- More instrument effects.
 
 ## Issues
 - Audio becomes distorted after continued use. This is bug that I've noticed frequently when using Tone with multiple instruments and could be memory/CPU related. 
