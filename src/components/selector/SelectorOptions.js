@@ -9,7 +9,6 @@ class NoteSelector extends React.Component {
   
   sendNote = e => {
     let note = e.target.id
-
     this.props.updateInstrumentSettings("note", note, this.props.selectorIndex)
   }
 
@@ -32,7 +31,6 @@ class EffectsSelector extends React.Component {
 
   constructor(props){
     super(props)
-    console.log(this.props)
     this.state = {
       volumeValue: this.props.volumeValue
     }

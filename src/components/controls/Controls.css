@@ -50,6 +50,7 @@
 }
 .Controls .instrument-options-container .options:hover {
     color: rgb(119, 11, 119);
+    cursor: pointer;
 }
 
 
@@ -96,4 +97,30 @@
     display: none; 
 } 
 
+
+.upload-input-button {
+    position:relative;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.upload-input-button:hover {
+    color: rgb(119, 11, 119);
+    cursor: pointer;
+}
+
+.upload-input {
+    position:absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.hover-button {
+    opacity: 0;
+}
 
